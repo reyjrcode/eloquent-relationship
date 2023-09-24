@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Posts;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,20 @@ class UserController extends Controller
             'details' => $user
         ], 201);
     }
-    
-    public function show(User $user){
+
+    public function show(User $user)
+    {
         $user->load('profile');
         return $user;
     }
+    public function showPosts(User $user)
+    {
+        $posts = Posts::where('post_id', $user->id)->get();
+        return response()->json([
+            'user' => $user,
+            'posts' => $posts
+        ]);
+    }
+
+
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('users',UserController::class);
 Route::resource('profile', ProfileController::class);
+Route::resource('posts',PostsController::class);
+Route::get('/user/{user}/posts',  [UserController::class,'showPosts'])->name('user.posts');

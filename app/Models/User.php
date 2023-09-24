@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -23,7 +24,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'creator_id'
+        'creator_id',
+        'post_id'
     ];
 
     /**
@@ -49,6 +51,13 @@ class User extends Authenticatable
 
     public function profile(): BelongsTo
     {
-        return $this->belongsTo(Profile::class,'creator_id');
+        return $this->belongsTo(Profile::class, 'creator_id');
+    }
+
+
+    
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Posts::class);
     }
 }
