@@ -27,7 +27,7 @@ class UserController extends Controller
     }
     public function showPosts(User $user)
     {
-        $posts = Posts::where('post_id', $user->id)->get();
+        $posts = Posts::where('post_id', $user->id)->paginate(10);
         return response()->json([
             'user' => $user,
             'posts' => $posts
