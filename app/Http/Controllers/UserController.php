@@ -15,7 +15,7 @@ class UserController extends Controller
         $validated = $request->validated();
         $user = User::create($validated);
         return response()->json([
-            'message' => 'User created successfully',
+            'message' => 'User created successfully 123',
             'details' => $user
         ], 201);
     }
@@ -33,6 +33,5 @@ class UserController extends Controller
             'posts' => $posts
         ]);
     }
-
 
 }
