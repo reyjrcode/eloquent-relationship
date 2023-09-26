@@ -33,4 +33,5 @@ Route::get('/user/posts/{user}', [UserController::class, 'showPosts'])->name('us
 Route::post('users/roles', [UserRoleController::class, 'createUserWithRoles']);
 Route::get('users/role/{id}', [UserRoleController::class, 'getUserRoles']);
 Route::put('users/roles/{userId}', [UserRoleController::class, 'updateUserRoles']);
+Route::delete('users/roles/{userId}', [UserRoleController::class,'deleteUser']);
 Route::resource('role', RoleController::class);

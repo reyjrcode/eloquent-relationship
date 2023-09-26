@@ -38,6 +38,17 @@ class UserRoleController extends Controller
         ]);
     }
 
+    public function deleteUser($userId)
+    {
+        $user = User::find($userId);
+        $user->roles()->detach();
+        $user->delete();
+        return response()->json([
+            'message' => 'User deleted',
+            'user' => $user
+        ]);
+    }
+
 
     public function getUserRoles($id)
     {
