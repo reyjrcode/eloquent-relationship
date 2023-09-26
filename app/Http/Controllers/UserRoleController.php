@@ -71,4 +71,11 @@ class UserRoleController extends Controller
 
         return response()->json(['user' => $user]);
     }
+
+    public function getUsersWithRoles()
+    {
+        $users = User::with('roles')->paginate();
+        return response()->json(['users' => $users]);
+    }
+
 }
