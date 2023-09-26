@@ -26,6 +26,18 @@ class UserRoleController extends Controller
         // $role = Role::find(1);
         // $users = $role->users;
     }
+    public function updateUserRoles(Request $request, $userId)
+    {
+        $user = User::find($userId);
+        $user->roles()->sync($request->input('roles_ids'));
+        return response()->json([
+            'message' => 'User roles updated',
+            'user' => $user,
+
+
+        ]);
+    }
+
 
     public function getUserRoles($id)
     {
