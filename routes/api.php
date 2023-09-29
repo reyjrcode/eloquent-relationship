@@ -42,4 +42,5 @@ Route::resource('role', RoleController::class);
 
 Route::resource('author', AuthorsController::class);
 Route::post('role/author', [RoleWithAuthorController::class, 'createRoleWithAuthor']);
-Route::get('roles/author/{id}', [RoleWithAuthorController::class,'getRoleAuthor']);
+Route::get('roles/author/{id}', [RoleWithAuthorController::class, 'getRoleAuthor']);
+Route::put('role/author/{id}', [RoleWithAuthorController::class, 'updateRoleWithAuthor']);

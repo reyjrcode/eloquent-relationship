@@ -31,5 +31,15 @@ class RoleWithAuthorController extends Controller
         return response()->json(['user' => $role]);
     }
 
+    public function updateRoleWithAuthor(Request $request, $id)
+    {
+        $role = Role::find($id);
+        $role->authors()->sync($request->input('authors_ids'));
+        return response()->json([
+            'message' => 'Role author updated',
+            'user' => $role,
+        ]);
+    }
+
 
 }
