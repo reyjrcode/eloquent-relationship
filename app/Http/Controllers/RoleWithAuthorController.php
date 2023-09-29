@@ -50,5 +50,12 @@ class RoleWithAuthorController extends Controller
             'user' => $role
         ]);
     }
-
+    public function getAllRoleWithAuthors(){
+        $role = Role::with('authors')->paginate();
+        return response()->json(
+            [
+                'Roles'=>$role
+            ]
+        );
+    }
 }

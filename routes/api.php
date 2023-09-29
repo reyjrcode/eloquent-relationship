@@ -44,4 +44,5 @@ Route::resource('author', AuthorsController::class);
 Route::post('role/author', [RoleWithAuthorController::class, 'createRoleWithAuthor']);
 Route::get('roles/author/{id}', [RoleWithAuthorController::class, 'getRoleAuthor']);
 Route::put('role/author/{id}', [RoleWithAuthorController::class, 'updateRoleWithAuthor']);
-Route::delete('role/author/{id}',[RoleWithAuthorController::class,'deleteRole']);
+Route::delete('role/author/{id}', [RoleWithAuthorController::class, 'deleteRole']);
+Route::get('get/role/author', [RoleWithAuthorController::class, 'getAllRoleWithAuthors']);
