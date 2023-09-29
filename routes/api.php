@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthorsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\RoleWithAuthorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
 use Illuminate\Http\Request;
@@ -33,6 +35,11 @@ Route::get('/user/posts/{user}', [UserController::class, 'showPosts'])->name('us
 Route::post('users/roles', [UserRoleController::class, 'createUserWithRoles']);
 Route::get('users/role/{id}', [UserRoleController::class, 'getUserRoles']);
 Route::put('users/roles/{userId}', [UserRoleController::class, 'updateUserRoles']);
-Route::delete('users/roles/{userId}', [UserRoleController::class,'deleteUser']);
-Route::get('user/get/roles/{userId}',[UserRoleController::class,'getUsersWithRoles']);
+Route::delete('users/roles/{userId}', [UserRoleController::class, 'deleteUser']);
+Route::get('user/get/roles/', [UserRoleController::class, 'getUsersWithRoles']);
 Route::resource('role', RoleController::class);
+
+
+Route::resource('author', AuthorsController::class);
+Route::post('role/author', [RoleWithAuthorController::class, 'createRoleWithAuthor']);
+Route::get('roles/author/{id}', [RoleWithAuthorController::class,'getRoleAuthor']);

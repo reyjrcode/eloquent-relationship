@@ -14,9 +14,17 @@ class Role extends Model
 
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        // 'pivot'
+    ];
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
-
+    }
+    public function authors(): BelongsToMany
+    {
+        return $this->belongsToMany(Authors::class);
     }
 }

@@ -54,16 +54,17 @@ class UserRoleController extends Controller
     {
         $user = User::with('roles')->find($id);
 
-        // if(!$user){
+        // if (!$user) {
         //     return response()->json(['message' => 'User not found'], 404);
         // }
-        // $userRoles = $user->roles->map(function ($role){
+        // $userRoles = $user->roles->map(function ($role) {
         //     return [
         //         'email' => $role->email,
         //         'name' => $role->name,
         //     ];
         // });
         // return response()->json(['user_roles' => $userRoles]);
+
 
         if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
