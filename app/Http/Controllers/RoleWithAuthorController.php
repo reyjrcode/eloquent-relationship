@@ -40,6 +40,15 @@ class RoleWithAuthorController extends Controller
             'user' => $role,
         ]);
     }
-
+    public function deleteRole(Request $request,$id)
+    {
+        $role = Role::find($id);
+        $role->authors()->detach();
+        $role->delete();
+        return response()->json([
+            'message' => 'Role deleted',
+            'user' => $role
+        ]);
+    }
 
 }
