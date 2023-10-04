@@ -51,9 +51,13 @@ Route::get('get/role/author', [RoleWithAuthorController::class, 'getAllRoleWithA
 
 // postings
 Route::post('store/posting',[PostingsController::class,'createPosting']);
+Route::put('update/postings/{id}',[PostingsController::class,'updatePostings']);
+ 
 
 // comments
 Route::post('store/comments',[CommentsController::class,'storeComments']);
+
+
 // get post with comments
 
 Route::get('get/postwithcomment',[UserController::class,'getUserWithPostsAndComments']);
