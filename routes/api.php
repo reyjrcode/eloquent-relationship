@@ -52,6 +52,7 @@ Route::get('get/role/author', [RoleWithAuthorController::class, 'getAllRoleWithA
 // postings
 Route::post('store/posting',[PostingsController::class,'createPosting']);
 Route::put('update/postings/{id}',[PostingsController::class,'updatePostings']);
+Route::delete('delete/postings/{id}',[PostingsController::class,'deletePostings']);
  
 
 // comments

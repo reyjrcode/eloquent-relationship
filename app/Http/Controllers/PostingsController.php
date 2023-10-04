@@ -31,4 +31,14 @@ class PostingsController extends Controller
             'Details' => $post,
         ]);
     }
+    public function deletePostings($id) {
+        $post = Postings::findOrFail($id);
+        $post->delete();
+
+        return response()->json([
+            'message' => 'Postings Deleted',
+            'Details' => $post,
+        ]);
+    }
+    
 }
