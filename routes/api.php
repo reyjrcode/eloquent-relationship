@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\PostingsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -46,3 +47,6 @@ Route::get('roles/author/{id}', [RoleWithAuthorController::class, 'getRoleAuthor
 Route::put('role/author/{id}', [RoleWithAuthorController::class, 'updateRoleWithAuthor']);
 Route::delete('role/author/{id}', [RoleWithAuthorController::class, 'deleteRole']);
 Route::get('get/role/author', [RoleWithAuthorController::class, 'getAllRoleWithAuthors']);
+
+// postings
+Route::post('store/posting',[PostingsController::class,'createPosting']);
