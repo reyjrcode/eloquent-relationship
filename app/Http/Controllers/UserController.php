@@ -33,5 +33,8 @@ class UserController extends Controller
             'posts' => $posts
         ]);
     }
-
+    public function getUserWithPostsAndComments(){
+        $users = User::with(['postings.comments','comments'])->get();
+        return response()->json($users);
+    }
 }

@@ -13,7 +13,7 @@ class Postings extends Model
     protected $fillable = [
         'title',
         'content',
-        'postings_id',
+        'user_id',
 
     ];
     use HasFactory;

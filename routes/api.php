@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\PostingsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
@@ -50,3 +51,9 @@ Route::get('get/role/author', [RoleWithAuthorController::class, 'getAllRoleWithA
 
 // postings
 Route::post('store/posting',[PostingsController::class,'createPosting']);
+
+// comments
+Route::post('store/comments',[CommentsController::class,'storeComments']);
+// get post with comments
+
+Route::get('get/postwithcomment',[UserController::class,'getUserWithPostsAndComments']);

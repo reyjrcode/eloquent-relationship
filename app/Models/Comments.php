@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comments extends Model
 {
+
+    protected $fillable = [
+        'content',
+        'user_id',
+        'postings_id',
+
+    ];
     use HasFactory;
     public function user(): BelongsTo
     {
