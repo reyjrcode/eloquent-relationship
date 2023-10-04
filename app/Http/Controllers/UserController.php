@@ -33,8 +33,20 @@ class UserController extends Controller
             'posts' => $posts
         ]);
     }
-    public function getUserWithPostsAndComments(){
-        $users = User::with(['postings.comments','comments'])->get();
+    public function getUserWithPostsAndComments()
+    {
+        $users = User::with(['postings.comments', 'comments'])->get();
         return response()->json($users);
+    }
+
+    public function getUserWithPostsAndComments1($id)
+    {
+        $user = User::with(['postings.comments', 'comments','postings'])->find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json($user);
     }
 }

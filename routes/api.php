@@ -57,3 +57,4 @@ Route::post('store/comments',[CommentsController::class,'storeComments']);
 // get post with comments
 
 Route::get('get/postwithcomment',[UserController::class,'getUserWithPostsAndComments']);
+Route::get('getuserswithpostcomments/{id}',[UserController::class,'getUserWithPostsAndComments1']);
